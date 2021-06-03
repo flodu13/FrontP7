@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Auteur implements Serializable {
     private int id;
     private String nom;
-    private String premon;
+    private String prenom;
 
     public int getId() {
         return id;
@@ -23,11 +23,11 @@ public class Auteur implements Serializable {
         this.nom = nom;
     }
 
-    public String getPremon() {
-        return premon;
+    public String getPrenom() {
+        return prenom;
     }
 
-    public void setPremon(String premon) {
-        this.premon = premon;
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
     }
 }

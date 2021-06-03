@@ -23,8 +23,10 @@
 </p>
 <tbody>
 <tr th:each="ouvrage: ${ouvrages}">
-    <td th:text="${ouvrage.titre}" />
-    <td th:text="${ouvrage.auteur.nom} ${ouvrage.auteur.nom}" />
+    <td th:text="${ouvrage.titre}" > </td>
+    <td   >
+        <p><span th:text="${ouvrage.auteur.prenom}"></span> <span th:text="${ouvrage.auteur.nom}"></span></p>
+    </td>
 </tr>
 </tbody>
 
