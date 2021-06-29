@@ -23,12 +23,10 @@ public class AccueilController {
 
     @GetMapping("/")
     public String accueil ( Model model) {
-        model.addAttribute("ouvrages", null);
         List<Ouvrage> ouvrages = ouvrageService.findAllOuvrage();
 
 // logic to build student data
         model.addAttribute("ouvrages", ouvrages);
-        model.addAttribute("token", "toto");
         return "accueil";
     }
   @PostMapping("/emprunter")

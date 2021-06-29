@@ -6,11 +6,10 @@ public class Emprunt {
 
     private int id;
 
-    private Date dateRenduPrevu;
-    private Date datelimite;
-    private Date rendu;
-    private int ouvrageID;
-    private int utilisateurId;
+    private String dateRenduPrevu;
+    private String datelimite;
+    private String rendu;
+    private Ouvrage ouvrage;
 
     public int getId() {
         return id;
@@ -20,43 +19,35 @@ public class Emprunt {
         this.id = id;
     }
 
-    public Date getDateRenduPrevu() {
+    public String getDateRenduPrevu() {
         return dateRenduPrevu;
     }
 
-    public void setDateRenduPrevu(Date dateRenduPrevu) {
+    public void setDateRenduPrevu(String dateRenduPrevu) {
         this.dateRenduPrevu = dateRenduPrevu;
     }
 
-    public Date getDatelimite() {
+    public String getDatelimite() {
         return datelimite;
     }
 
-    public void setDatelimite(Date datelimite) {
+    public void setDatelimite(String datelimite) {
         this.datelimite = datelimite;
     }
 
-    public Date getRendu() {
+    public String getRendu() {
         return rendu;
     }
 
-    public void setRendu(Date rendu) {
+    public void setRendu(String rendu) {
         this.rendu = rendu;
     }
 
-    public int getOuvrageID() {
-        return ouvrageID;
+    public Ouvrage getOuvrage() {
+        return ouvrage;
     }
 
-    public void setOuvrageID(int ouvrageID) {
-        this.ouvrageID = ouvrageID;
-    }
-
-    public int getUtilisateurId() {
-        return utilisateurId;
-    }
-
-    public void setUtilisateurId(int utilisateurId) {
-        this.utilisateurId = utilisateurId;
+    public void setOuvrage(Ouvrage ouvrage) {
+        this.ouvrage = ouvrage;
     }
 }

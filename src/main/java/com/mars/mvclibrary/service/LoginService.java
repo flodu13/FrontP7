@@ -1,11 +1,8 @@
 package com.mars.mvclibrary.service;
 
-import com.mars.mvclibrary.model.Emprunt;
 import com.mars.mvclibrary.model.LoginDto;
-import com.mars.mvclibrary.model.OuvrageUtilisateur;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.client.RestTemplate;
 
 @Service

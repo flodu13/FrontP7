@@ -3,7 +3,6 @@ package com.mars.mvclibrary.service;
 import com.mars.mvclibrary.model.Emprunt;
 import com.mars.mvclibrary.model.Ouvrage;
 import com.mars.mvclibrary.model.OuvrageUtilisateur;
-import org.apache.tomcat.util.http.parser.Authorization;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
