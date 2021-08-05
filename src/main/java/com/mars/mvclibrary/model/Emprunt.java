@@ -1,5 +1,6 @@
 package com.mars.mvclibrary.model;
 
+import java.security.PrivateKey;
 import java.util.Date;
 
 public class Emprunt {
@@ -10,6 +11,16 @@ public class Emprunt {
     private String datelimite;
     private String rendu;
     private Ouvrage ouvrage;
+
+    private Boolean prolongPret;
+
+    public Boolean getProlongPret() {
+        return prolongPret;
+    }
+
+    public void setProlongPret(Boolean prolongPret) {
+        this.prolongPret = prolongPret;
+    }
 
     public int getId() {
         return id;

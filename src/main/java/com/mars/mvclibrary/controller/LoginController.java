@@ -19,6 +19,7 @@ public class LoginController {
 
     @GetMapping("/login")
     public String login (Model model) {
+        model.addAttribute("isLogged", false);
         return "login";
     }
 
@@ -30,6 +31,15 @@ public class LoginController {
         // create a cookie
         Cookie cookie = new Cookie("token", token);
         //add cookie to response
+        response.addCookie(cookie);
+        return "redirect:/";
+    }
+
+    @GetMapping("/logout")
+    public String logout (HttpServletResponse response) {
+        Cookie cookie = new Cookie("token", null);
+        //Delate cookie to response
+        cookie.setMaxAge(0);
         response.addCookie(cookie);
         return "redirect:/";
     }

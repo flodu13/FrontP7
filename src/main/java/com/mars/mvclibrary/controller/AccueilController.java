@@ -22,11 +22,29 @@ public class AccueilController {
     OuvrageService ouvrageService;
 
     @GetMapping("/")
-    public String accueil ( Model model) {
-        List<Ouvrage> ouvrages = ouvrageService.findAllOuvrage();
+    public String accueil ( @RequestParam(required = false) String search, Model model, HttpServletRequest request) {
+
+        List<Ouvrage> ouvrages;
+        if (search==null)
+        {
+            ouvrages= ouvrageService.findAllOuvrage();
+        } else {
+            ouvrages=ouvrageService.findAllBySearch(search);
+        }
+
 
 // logic to build student data
         model.addAttribute("ouvrages", ouvrages);
+        String token=null;
+
+        if (request.getCookies()!=null) {
+            for (Cookie cookie : request.getCookies()) {
+                if (cookie.getName().equals("token")) {
+                    token = cookie.getValue();
+                }
+            }
+        }
+        model.addAttribute("isLogged", token!=null);
         return "accueil";
     }
   @PostMapping("/emprunter")
@@ -41,6 +59,8 @@ public class AccueilController {
 
 ouvrageService.emprunter(1,ouvrageId, token);
 
-      return "accueil";
+      return "redirect:/";
   }
+
+
 }

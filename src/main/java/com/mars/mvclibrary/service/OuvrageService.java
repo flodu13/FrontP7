@@ -34,4 +34,8 @@ public class OuvrageService {
         HttpEntity<OuvrageUtilisateur> httpEntity = new HttpEntity<>(new OuvrageUtilisateur (utilisateurId, ouvrageId), multiValueMap);
         return restTemplate.exchange("http://localhost:8090/emprunt", HttpMethod.POST, httpEntity, Emprunt.class).getBody();
     }
+
+    public List<Ouvrage> findAllBySearch(String search) {
+        return Arrays.asList(restTemplate.getForObject("http://localhost:8090/ouvrage?search=" + search, Ouvrage[].class));
+    }
 }

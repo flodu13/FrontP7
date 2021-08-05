@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8" />
 
@@ -19,15 +19,22 @@
 </head>
 <body>
 
+<header th:insert="~{header::header}" class="mb-5">
+</header>
 <p class="text-center">
     Bienvenu sur le site "Bibliothèque".
 </p>
+<form th:action="@{/}" method="get">
+    <input type="text" placeholder="Titre, Auteur, maison édition" th:name="search">
+    <input type="submit" value="Rechercher">
+    </form>
+
 <table class="table">
     <thead>
     <tr>
         <th>Titre</th>
         <th>Auteur</th>
-        <th th:if="${token}!=null" >Emprunter</th>
+        <th th:if="${isLogged}" >Emprunter</th>
     </tr>
     </thead>
 <tbody>
@@ -37,7 +44,7 @@
     <td   >
         <p><span th:text="${ouvrage.auteur.prenom}"></span> <span th:text="${ouvrage.auteur.nom}"></span></p>
     </td>
-    <td th:if="${token}!=null">
+    <td th:if="${isLogged}">
         <form action="#" th:action="@{/emprunter}"  method="post">
             <input type="hidden" th:name="ouvrageId" th:value="${ouvrage.id}"/>
             <input type="submit" value="Emprunter" />
