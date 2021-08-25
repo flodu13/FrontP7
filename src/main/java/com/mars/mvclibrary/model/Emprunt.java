@@ -22,6 +22,13 @@ public class Emprunt {
         this.prolongPret = prolongPret;
     }
 
+    public String getDate () {
+        if (datelimite!=null) {
+            return datelimite;
+        }
+        return dateRenduPrevu;
+    }
+
     public int getId() {
         return id;
     }
