@@ -22,7 +22,13 @@
 <header th:insert="~{header::header}" class="mb-5">
 </header>
 <p class="text-center">
-    Bienvenu sur le site "Bibliothèque" !!! Liste des livres :.
+    Bienvenu sur le site de la bibliothèque municipale.
+</p>
+<p class="text-center">
+<img src="bibliothèque.png" height="autox" width="500px">
+</p>
+<p class="text-center">
+    Voici la liste des livres disponible :
 </p>
 <form th:action="@{/}" method="get">
     <input type="text" placeholder="Titre, Auteur, maison édition" th:name="search">

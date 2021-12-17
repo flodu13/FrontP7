@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <title>empruntEnCours</title>
+</head>
+<body>
+<header th:insert="~{header::header}" class="mb-5">
+</header>
+<p class="text-center">
+   Enprunt en cours".
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Titre</th>
+        <th>Auteur</th>
+        <th>Date limite</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="emprunt: ${emprunts}">
+        <td th:text="${emprunt.ouvrage.titre}" >
+        </td>
+        <td   >
+            <p><span th:text="${emprunt.ouvrage.auteur.prenom}"></span> <span th:text="${emprunt.ouvrage.auteur.nom}"></span></p>
+        </td>
+
+        <td >
+            <span th:text="${emprunt.date}" >
+            </span>
+
+            <form th:if="!${emprunt.prolongPret}" action="#" th:action="@{/emprunt/renouveler}"  method="post">
+                <input type="hidden" th:name="empruntId" th:value="${emprunt.id}"/>
+                <input type="submit" value="Renouveler" />
+            </form>
+        </td>
+    </tr>
+
+
+    </tbody>
+</table>
+</body>
+</html>
