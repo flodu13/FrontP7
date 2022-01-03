@@ -37,14 +37,15 @@ model.addAttribute("emprunts",empruntService.empruntEnCours(token));
     @PostMapping("/emprunt/renouveler")
     public String EmpruntEnCoursRenouveler (@RequestParam Integer empruntId,  Model model, HttpServletRequest request ) {
         String token=null;
-
+//recupère le token
         for(Cookie cookie : request.getCookies()) {
             if (cookie.getName().equals("token")) {
                 token=cookie.getValue();
             }
         }
+        //Appel emprunt service
 empruntService.prolonger(token, empruntId);
-
+//redirect sur emprunt en cour pour la remetre à jpur
         return "redirect:/empruntEnCours";
     }
 }
